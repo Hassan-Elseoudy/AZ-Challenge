@@ -157,12 +157,12 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 				<div class="container">
 						<h2>About Us</h2>
 					<div class="about-bottom">
-						<h3><b>ROBO-TECH </b> Teamhas been founded in November 2014 by some outstanding students studying
+						<h3><b>ROBO-TECH </b> Team has been founded in November 2014 by some outstanding students studying
 							Electrical and Mechanical Engineering at Alexandria University. </h3>
 						<h3> We participate in Robotics competitions such as Remotely Operated Vehicles (ROV) competitions
 							and Minesweepers competitions. </h3>
 						<h3> We raise generations of college students and schools’ students; we teach them our knowledge and
-							help them reach outstanding technical and no-technical levels of knowledge as part of our vision for a
+							help them reach outstanding technical and non-technical levels of knowledge as part of our vision for a
 							better education system.</h3>
 							<br>
 							<h3><b>Awards</b></h3><br>
@@ -395,6 +395,8 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 
 						 <h2 style="text-align: center">Upload the image you want to classify</h2>
 						 <br>
+
+						 <form action="upload.php" method="post" enctype="multipart/form-data">
 						 <div class="file-upload">
 								<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
 							
@@ -406,10 +408,11 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 									<img class="file-upload-image" src="#" alt="your image" />
 									<div class="image-title-wrap">
 										<button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-										<input type="submit" class="remove-image" value="Submit">
+										<input type="submit" class="remove-image" value="Submit" name="submit">
 									</div>
 								</div>
 							</div>
+							</form>
 
 		<!--
 		  <section class="cr-container">
