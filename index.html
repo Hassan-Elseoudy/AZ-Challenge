@@ -27,6 +27,34 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 <script type="text/javascript" src="js/uploading_box.js"></script>
 
 <!--/script-->
+<script>
+	$(document).ready(function(){
+		$("#yalla").click(function(){
+			$.ajax({
+					url: "https://westeurope.api.cognitive.microsoft.com/customvision/v3.0/Prediction/63a1567c-76b3-4165-b69b-bf45ef0b967a/classify/iterations/Classify%20Iteration/url",
+					
+					beforeSend: function(xhrObj){
+							// Request headers
+							xhrObj.setRequestHeader("Prediction-Key","fc857b03c0ca4eed97e230836e9c11c0");
+							xhrObj.setRequestHeader("Content-Type","application/json");
+						//	xhrObj.setRequestHeader("Prediction-Key","b6e1399d-f923-48c8-8556-12606973af0d");
+					},
+					type: "POST",
+					// Request body
+					data: {
+						"url": "https://i.imgsafe.org/66/66f4494ce5.jpeg"
+						}
+			})
+			.done(function(data) {
+					alert("success");
+			})
+			.fail(function() {
+					alert("Error");
+			});
+		});
+	});
+	</script>
+
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
 				$(".scroll").click(function(event){		
@@ -395,13 +423,25 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 
 						 <h2 style="text-align: center">Upload the image you want to classify</h2>
 						 <br>
+							<iframe style="float:right" width="1100" height="550" src="https://imgsafe.org/"></iframe>
+							
+							<div style=" padding-top: 2em" class="contact-form">
+								 <div style="text-align: center;">
+									 <h3 style="display: inline-block;">Image URL</h3>
+									<input style="display: inline-block;" name="imageURL" id="the_thing"type="text" class="textbox">
+									<input onclick="getTheThing()" style="display: inline-block;" type="submit" value="Yalla! " id="yalla"/>
+								 </div>
+								 <div>			
+							 </div>
+							 <div class="clearfix"></div>
+					 </div>
 
-						 <form action="upload.php" method="post" enctype="multipart/form-data">
-						 <div class="file-upload">
+							<!--
+							<div class="file-upload">
 								<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
 							
 								<div class="image-upload-wrap">
-									<input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+									<input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" name="fileToUpload" id="fileToUpload"/>
 								</div>
 
 								<div class="file-upload-content">
@@ -413,7 +453,7 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 								</div>
 							</div>
 							</form>
-
+						-->
 		<!--
 		  <section class="cr-container">
 				<input id="select-img-1" name="radio-set-1" type="radio" class="cr-selector-img-1" checked/>
