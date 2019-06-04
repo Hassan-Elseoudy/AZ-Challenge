@@ -27,28 +27,30 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 <script type="text/javascript" src="js/uploading_box.js"></script>
 
 <!--/script-->
+
 <script>
 	$(document).ready(function(){
 		$("#yalla").click(function(){
+			var obj = {"Url": (document.getElementById('the_thing').value)};
+	    var myJSON = JSON.stringify(obj);
 			$.ajax({
 					url: "https://westeurope.api.cognitive.microsoft.com/customvision/v3.0/Prediction/63a1567c-76b3-4165-b69b-bf45ef0b967a/classify/iterations/Classify%20Iteration/url",	
 					beforeSend: function(xhrObj){
 							// Request headers
 							xhrObj.setRequestHeader("Prediction-Key","fc857b03c0ca4eed97e230836e9c11c0");
 							xhrObj.setRequestHeader("Content-Type","application/json");
-							//xhrObj.setRequestHeader("Prediction-key","b6e1399d-f923-48c8-8556-12606973af0d");
 					},
 					type: "POST",
 					// Request body
-					data: {
-						"url": "https://i.imgsafe.org/66/66f4494ce5.jpeg"
-						}
-			})
-			.done(function(data) {
-					alert("success");
-			})
-			.fail(function() {
-					alert("Error");
+					dataType: "json",
+					data:  myJSON,
+					success: function(data) {
+						console.log(data.predictions[0].tagName);
+					 $('#div11').html('<h3> Classification Result: '+data.predictions[0].tagName+'<h3>');
+        	},
+        	error: function() {
+            alert('Error occured');
+        	},
 			});
 		});
 	});
@@ -380,18 +382,22 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 	<div class="classification" id="classification">
 	   <div class="container">
 						 <h3 class="tittle">Aquatech</h3>
-
 						 <h2 style="text-align: center">Upload the image you want to classify</h2>
 						 <br>
 							<iframe style="float:right" width="1100" height="550" src="https://imgsafe.org/"></iframe>
-							
+							<div></div>
+							<br>
+							<h2 style="visibility: hidden">Enter image URL</h2>
+							<h2 style="text-align: center">Enter image URL</h2>
 							<div style=" padding-top: 2em" class="contact-form">
 								 <div style="text-align: center;">
 									 <h3 style="display: inline-block;">Image URL</h3>
+									 <br>
 									<input style="display: inline-block;" name="imageURL" id="the_thing"type="text" class="textbox">
-									<input onclick="getTheThing()" style="display: inline-block;" type="submit" value="Yalla! " id="yalla"/>
+									<input style="display: inline-block;" type="submit" value="Yalla! " id="yalla"/>
 								 </div>
-								 <div>			
+								 <div>
+										<div  id="div11"><h3>-Classification Result-</h3></div>			
 							 </div>
 							 <div class="clearfix"></div>
 					 </div>		

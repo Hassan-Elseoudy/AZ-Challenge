@@ -130,7 +130,7 @@ span.menu{
 	font-size: 1em;
 	text-decoration: none;
 	color: #fff;
-	text-transform: uppercase;
+	
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
@@ -773,30 +773,30 @@ transition: 0.5s all;
 -moz-transition: 0.5s all;
 -ms-transition: 0.5s all;
 }
-/*--gallery--*/
-#gallery {
+/*--live--*/
+#live {
    padding: 5em 0;
     background: #fff;
   }
-  .gallery-bottom {
+  .live-bottom {
   margin-top: 1.5em;
 }
   h3.tittle.gal{
   color:#fff;
   }
-.gallery-left img,.g-left img {
+.live-left img,.g-left img {
 	width: 100%;
 }
 .g-left:nth-child(4),.g-left:nth-child(5){
 	margin-top:3.5%;
 }
-.gallery-one{
+.live-one{
 	margin:2em 0 0 0;
 }
-.gallery-right{
+.live-right{
 	padding:0;
 }
-.gallery-left{
+.live-left{
     padding: 0 2px;
 }
 .g-3 {
@@ -814,8 +814,8 @@ transition: 0.5s all;
 .g-6{
 	padding-top:4px;
 }
-/*--news--*/
-.news {
+/*--classification--*/
+.classification {
      padding: 6em 0 15em 0;
 	 background-color: #f4f4f4;
 }
@@ -945,7 +945,7 @@ label {
   padding: 15px 18px;
   font-weight: 400;
   font-size: 15px;
-  text-transform: uppercase;
+  
   color: #333;
   margin: 0px 0 7px 0;
 }
@@ -959,7 +959,7 @@ label {
     padding: 0.7em 1em;
     color: #fff;
     background: #FF8DAE;
-    text-transform: uppercase;
+    
     font-weight: 400;
     font-size: 1em;
     display: block;
@@ -1079,7 +1079,7 @@ color: #FF8DAE;
 		padding: 1em 1em;
 		width: 62%;
 	}
-	.news-top {
+	.classification-top {
 		width: 51%;
 		margin: 0.5em auto 0;
 	}
@@ -1095,7 +1095,7 @@ color: #FF8DAE;
 		float: left;
 		margin: 1.5em 0 0 1.6em;
 	}
-	.news-top {
+	.classification-top {
 		width: 61%;
 		margin: 0.5em auto 0;
 	}
@@ -1123,7 +1123,7 @@ color: #FF8DAE;
 		top: -8%;
 		left: 1%;
 	}
-	.news-top {
+	.classification-top {
        width: 66%;
       margin: 0.5em auto 0;
     }
@@ -1249,11 +1249,11 @@ color: #FF8DAE;
     padding:6px 0.5em;
     font-size: 0.6em;
   }
- .col-md-6.gallery-left {
+ .col-md-6.live-left {
     width: 50%;
     float: left;
 	}
-	.col-md-3.gallery-left {
+	.col-md-3.live-left {
 		width: 25%;
 		float: left;
 	}
@@ -1261,7 +1261,7 @@ color: #FF8DAE;
 		width: 50%;
 		float: left;
 	}
-	.news-top {
+	.classification-top {
 		width: 84%;
 		margin: 0.5em auto 0;
 	}
@@ -1394,11 +1394,11 @@ color: #FF8DAE;
     padding:6px 0.5em;
     font-size: 0.6em;
   }
- .col-md-6.gallery-left {
+ .col-md-6.live-left {
     width: 50%;
     float: left;
 	}
-	.col-md-3.gallery-left {
+	.col-md-3.live-left {
 		width: 25%;
 		float: left;
 	}
@@ -1406,7 +1406,7 @@ color: #FF8DAE;
 		width: 50%;
 		float: left;
 	}
-	.news-top {
+	.classification-top {
 		width: 84%;
 		margin: 0.5em auto 0;
 	}
@@ -1556,7 +1556,7 @@ color: #FF8DAE;
 	}
 }
 @media (max-width:640px){
-	.news-top {
+	.classification-top {
     width: 100%;
 	}
 	.top-new {
@@ -1595,7 +1595,7 @@ color: #FF8DAE;
     bottom: 17px;
     left: 17px;
 	}
-	#gallery {
+	#live {
     padding: 4em 0;
 	}
 	.services {
@@ -1627,7 +1627,7 @@ color: #FF8DAE;
 	.about {
       padding: 4em 0;
 	}
-	.news {
+	.classification {
       padding: 4em 0 17em 0;
 	}
 	#about h2 {
@@ -1828,10 +1828,10 @@ color: #FF8DAE;
 	.fishes {
 		padding: 3em 0;
 	}
-   #gallery {
+   #live {
     padding: 3em 0;
   }
-  .news {
+  .classification {
           padding: 3em 0 19em 0;
 	}
 	.about{
@@ -1914,7 +1914,7 @@ color: #FF8DAE;
 		padding: 0;
 		margin-bottom: 9%;
 	}
-	#gallery {
+	#live {
 		padding: 2em 0;
 	}
 	.team {
@@ -1938,7 +1938,7 @@ color: #FF8DAE;
 	}
 }
 @media (max-width:320px){
-		.col-md-3.gallery-left, .col-md-6.gallery-left {
+		.col-md-3.live-left, .col-md-6.live-left {
 		width: 100%;
 		float: none;
 	}
@@ -2029,7 +2029,7 @@ color: #FF8DAE;
 	h3.tittle {
 		font-size: 2.2em;
 	}
-	.news {
+	.classification {
 		padding: 2em 0 19em 0;
 	}
 	a.post {
@@ -2119,7 +2119,7 @@ color: #FF8DAE;
   border-bottom: 4px solid #404359;
   transition: all .2s ease;
   outline: none;
-  text-transform: uppercase;
+  
   font-weight: 700;
 }
 
@@ -2186,7 +2186,7 @@ color: #FF8DAE;
   border-bottom: 4px solid #b02818;
   transition: all .2s ease;
   outline: none;
-  text-transform: uppercase;
+  
   font-weight: 700;
 }
 
