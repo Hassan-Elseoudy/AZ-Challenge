@@ -920,7 +920,7 @@ h3.tittle.test {
 /*--.contact_desc--*/
 .contact_desc{
   padding:4em 0;
-     background-color: #F5F3F3;
+     background-color: #fff;
 }
 form.left_form {
   float: left;
@@ -2200,4 +2200,8 @@ color: #FF8DAE;
 .remove-image:active {
   border: 0;
   transition: all .2s ease;
+}
+
+.contact_{
+	background-color: #F3F1F1;
 }

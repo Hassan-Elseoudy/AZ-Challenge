@@ -32,6 +32,7 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 	$(document).ready(function(){
 		$("#yalla").click(function(){
 			var obj = {"Url": (document.getElementById('the_thing').value)};
+			document.getElementById("Img_").src = document.getElementById('the_thing').value;
 	    var myJSON = JSON.stringify(obj);
 			$.ajax({
 					url: "https://westeurope.api.cognitive.microsoft.com/customvision/v3.0/Prediction/63a1567c-76b3-4165-b69b-bf45ef0b967a/classify/iterations/Classify%20Iteration/url",	
@@ -312,7 +313,7 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 						<figure class="effect-bubba">
 							<img src="images/g2.jpg" alt=""/>
 							<figcaption>
-								<h4>Octupus</h4>
+								<h4>Octopus</h4>
 								<p>A Cephalopod mollusc with eight sucker-bearing arms, a soft body, strong beaklike jaws, and no internal shell.</p>
 								<!-----<div class="icon-links">
 									<a href="#"><i class="glyphicon glyphicon-paperclip"></i></a>
@@ -400,7 +401,11 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 										<div  id="div11"><h3>-Classification Result-</h3></div>			
 							 </div>
 							 <div class="clearfix"></div>
-					 </div>		
+					 </div>	
+					 <br>
+					 <div>
+						 <img id="Img_" src="" style="display: block; margin-left: auto; margin-right: auto; width: 50%">
+					 </div>	
 			</div>
 			 </div>
 
@@ -409,7 +414,7 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 		        <div class="container">
 		        	<h3 class="tittle">Contact Us</h3>
 			         <div class="contact-form">
-				  	   <form class="left_form">
+				  	   <form action="mailto:robotech.alex@gmail.com" method="post" enctype="text/plain" class="left_form">
 					    	<div>
 						    	<span><label>NAME</label></span>
 						    	<span><input name="userName" type="text" class="textbox"></span>
@@ -437,7 +442,7 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 				  </div>
 	  </div>
 
-		<div class="contact">
+		<div class="contact contact_">
 			<div class="col-md-6 contact-top">
 				<div class="point"> <i class="glyphicon glyphicon-map-marker"></i></div>
 				<h3 class="tittle two">Find Us</h3>
