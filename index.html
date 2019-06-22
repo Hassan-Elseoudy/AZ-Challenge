@@ -34,11 +34,12 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 			var obj = {"Url": (document.getElementById('the_thing').value)};
 			document.getElementById("Img_").src = document.getElementById('the_thing').value;
 	    var myJSON = JSON.stringify(obj);
+			var res = "";
 			$.ajax({
-					url: "https://westeurope.api.cognitive.microsoft.com/customvision/v3.0/Prediction/63a1567c-76b3-4165-b69b-bf45ef0b967a/classify/iterations/Classify%20Iteration/url",	
+					url: "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/689268a6-9573-4ad4-a9da-3f01a09d3254/classify/iterations/Classify%20Iteration/url",	
 					beforeSend: function(xhrObj){
 							// Request headers
-							xhrObj.setRequestHeader("Prediction-Key","fc857b03c0ca4eed97e230836e9c11c0");
+							xhrObj.setRequestHeader("Prediction-Key","0550bf2142064947818db9a9ccafd3e3");
 							xhrObj.setRequestHeader("Content-Type","application/json");
 					},
 					type: "POST",
@@ -46,8 +47,17 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 					dataType: "json",
 					data:  myJSON,
 					success: function(data) {
-						console.log(data.predictions[0].tagName);
+						res = (data.predictions[0].tagName);
 					 $('#div11').html('<h3> Classification Result: '+data.predictions[0].tagName+'<h3>');
+						$.ajax({
+                url: 'http://en.wikipedia.org/w/api.php',
+                data: { action: 'query', list: 'search', srsearch: res, format: 'json' },
+                dataType: 'jsonp',
+                success: processResult,
+								error: function() {
+									alert('Error occured!!!');
+									},            
+			});
         	},
         	error: function() {
             alert('Error occured');
@@ -55,7 +65,12 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 			});
 		});
 	});
+
+	function processResult(apiResult){
+		$('#div12').html('<p>'+apiResult.query.search[0].snippet+'</p>');
+}
 	</script>
+
 
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
@@ -314,12 +329,7 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 							<img src="images/g2.jpg" alt=""/>
 							<figcaption>
 								<h4>Octopus</h4>
-								<p>A Cephalopod mollusc with eight sucker-bearing arms, a soft body, strong beaklike jaws, and no internal shell.</p>
-								<!-----<div class="icon-links">
-									<a href="#"><i class="glyphicon glyphicon-paperclip"></i></a>
-									<a href="#"><i class="glyphicon glyphicon-eye-open"></i></a>
-									<a href="#"><i class="glyphicon glyphicon-heart-empty"></i></a>
-								</div>--->								
+								<p>A Cephalopod mollusc with eight sucker-bearing arms, a soft body, strong beaklike jaws, and no internal shell.</p>							
 							</figcaption>			
 						</figure>		
 					</div>
@@ -330,7 +340,7 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 		<!-- team -->
    <div class="team" id="team">
 	  <div class="container">
-			<h3 class="tittle">Aquatech-App'Developers</h3>
+			<h3 class="tittle">Aquatech-App's Developers</h3>
 		<div class="team-grids">
 			<div class="col-md-3 team-grid text-center" style="visibility: hidden">
 				<div class="team-img">
@@ -398,7 +408,8 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 									<input style="display: inline-block;" type="submit" value="Yalla! " id="yalla"/>
 								 </div>
 								 <div>
-										<div  id="div11"><h3>-Classification Result-</h3></div>			
+										<div  id="div11"><h3>-Classification Result-</h3></div>
+										<div  id="div12"></div>		
 							 </div>
 							 <div class="clearfix"></div>
 					 </div>	
