@@ -50,7 +50,7 @@ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); func
 						res = (data.predictions[0].tagName);
 					 $('#div11').html('<h3> Classification Result: '+data.predictions[0].tagName+'<h3>');
 						$.ajax({
-                url: 'http://en.wikipedia.org/w/api.php',
+                url: 'https://en.wikipedia.org/w/api.php',
                 data: { action: 'query', list: 'search', srsearch: res, format: 'json' },
                 dataType: 'jsonp',
                 success: processResult,
